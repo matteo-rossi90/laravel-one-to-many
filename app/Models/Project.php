@@ -23,4 +23,8 @@ class Project extends Model
         'start_date' => 'datetime:d/m/Y',
         'end_date' => 'datetime:d/m/Y'
     ];
+
+    public function type(){
+        return $this->belongsTo(Type::class);
+    }
 }
