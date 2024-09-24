@@ -19,6 +19,12 @@
                     Aggiungi
                 </a>
             </li>
+            <li>
+                <a href="{{route('admin.types.index')}}">
+                    <i class="fa-solid fa-table"></i>
+                    Gestisci
+                </a>
+            </li>
         </ul>
     </div>
 </aside>

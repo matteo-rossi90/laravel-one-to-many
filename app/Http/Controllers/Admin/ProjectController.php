@@ -81,7 +81,7 @@ class ProjectController extends Controller
 
         $project->update($data);
 
-        return redirect()->route('admin.projects.show', compact('project'));
+        return redirect()->route('admin.projects.show', compact('project'))->with('edited', 'Il progetto è stato modificato correttamente');
 
     }
 

@@ -6,6 +6,12 @@
 
     <h2>{{$project->title}}</h2>
 
+    @if (session('edited'))
+        <div class="alert alert-success">
+            {{session('edited')}}
+        </div>
+    @endif
+
     <ul class="list-group list-group-flush my-3">
         <li class="list-group-item d-inline">
             <span><strong>Argomenti trattati: </strong></span><span>{{$project->theme}}</span>
