@@ -27,7 +27,7 @@ class ProjectRequest extends FormRequest
             'company' => 'required',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
-            'type_id' => 'nullable'
+            'type_id' => 'required'
         ];
 
     }
@@ -46,7 +46,8 @@ class ProjectRequest extends FormRequest
             'start_date.required' => 'La data d\'inizio è obbligatoria',
             'end_date.required' => 'La data di fine è obbligatoria',
             'end_date.date' => 'La data di fine deve essere una data valida',
-            'end_date.after_or_equal' => 'La data di fine non può essere precedente alla data di inizio'
+            'end_date.after_or_equal' => 'La data di fine non può essere precedente alla data di inizio',
+            'type_id' => 'La tipologia è obbligatoria'
         ];
     }
 }

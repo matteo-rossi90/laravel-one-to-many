@@ -56,6 +56,9 @@
                         >{{$type->name}}</option>
                     @endforeach
                 </select>
+                @error('type_id')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
 
             <div class="mb-3">
