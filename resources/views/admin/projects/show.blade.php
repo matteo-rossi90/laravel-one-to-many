@@ -14,6 +14,9 @@
             <span><strong>Azienda/responsabile: </strong></span><span>{{$project->company}}</span>
         </li>
         <li class="list-group-item d-inline">
+            <span><strong>Tipologia: </strong></span><span>{{$project->type?->name}}</span>
+        </li>
+        <li class="list-group-item d-inline">
             <span><strong>Iniziato il: </strong></span><span>{{($project->start_date)->format('d/m/Y')}}</span>
         </li>
         <li class="list-group-item d-inline">

@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Project;
 use Faker\Generator as Faker;
 use App\Functions\Helper;
+use App\Models\Type;
 
 class ProjectsSeeder extends Seeder
 {
@@ -17,6 +18,7 @@ class ProjectsSeeder extends Seeder
     {
         for ($i = 0; $i < 20; $i++) {
             $new_project = new Project();
+            $new_project->type_id = Type::inRandomOrder()->first()->id;
             $new_project->title = $faker->sentence(6);
             $new_project->theme = $faker->sentence(3);
             $new_project->company = $faker->sentence(3, true);

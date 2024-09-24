@@ -17,6 +17,7 @@
             <tr>
                 <th scope="col">#id</th>
                 <th scope="col">Titolo</th>
+                <th scope="col">Tipologia</th>
                 <th scope="col">Inizio</th>
                 <th scope="col">Fine</th>
                 <th scope="col">Azioni</th>
@@ -27,6 +28,11 @@
                 <tr>
                     <td>{{$project->id}}</td>
                     <td>{{$project->title}}</td>
+                    <td>
+                        <span class="badge text-bg-info">
+                            {{$project->type?->name}}
+                        </span>
+                    </td>
                     <td>{{($project->start_date)->format('d/m/Y')}}</td>
                     <td>{{($project->end_date)->format('d/m/Y')}}</td>
                     <td>

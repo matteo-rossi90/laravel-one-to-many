@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::table('projects', function (Blueprint $table) {
 
             //creare il campo della foreign key
-            $table->unsignedBigInteger('types_id')->nullable()->after('id');
+            $table->unsignedBigInteger('type_id')->nullable()->after('id');
 
             //creare la foreign key
-            $table->foreign('types_id')
+            $table->foreign('type_id')
                 ->references('id') //riferimento alla colonna id
                 ->on('types') //creare la relazione alla tabella types
                 ->onDelete('set null'); //in ogni oggetto cancellato sarà presente un tipo NULL
@@ -30,8 +30,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->dropForeign(['types_id']);
-            $table->dropColumn('types_id');
+            $table->dropForeign(['type_id']);
+            $table->dropColumn('type_id');
         });
     }
 };
