@@ -6,6 +6,30 @@
 
     <h2 class="my-4">Tipi di progetto</h2>
 
+    @if (session('error'))
+        <div class="alert alert-warning">
+            {{session('error')}}
+        </div>
+    @endif
+
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{session('success')}}
+        </div>
+    @endif
+
+    @if (session('delete'))
+        <div class="alert alert-success">
+            {{session('deleted')}}
+        </div>
+    @endif
+
+    @if (session('edited'))
+        <div class="alert alert-success">
+            {{session('edited')}}
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-md-6">
 
@@ -20,7 +44,7 @@
                     @foreach ($types as $type)
                         <tr>
                             <td class="w-75">
-                                <form action="{{route('admin.types.update', $type)}}" method="POST" class="d-flex justify-content-between gap-2">
+                                <form id="form-edit-{{ $type->id }}" action="{{route('admin.types.update', $type)}}" method="POST" class="d-flex justify-content-between gap-2">
                                     @csrf
                                     @method('PUT')
 

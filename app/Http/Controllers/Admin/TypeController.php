@@ -32,13 +32,27 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
+
+        //per evitare che si ripetano le stesse tipologie, verificare se esiste già una tipologia
+
+        $exists = Type::where('name', $request->name)->first();
+
+        if(!$exists){
+
         $data = $request->all();
 
         $data['slug'] = Helper::generateSlug($data['name'], Type::class);
 
         $type = Type::create($data);
 
-        return redirect()->route('admin.types.index');
+            return redirect()->route('admin.types.index')->with('success', 'La tipologia è stata inserita correttamente');
+
+        }else{
+
+            return redirect()->route('admin.types.index')->with('error', 'Attenzione! La tipologia è già presente');
+
+        }
+
     }
 
     /**
@@ -67,7 +81,7 @@ class TypeController extends Controller
 
         $type->update($data);
 
-        return redirect()->route('admin.types.index');
+        return redirect()->route('admin.types.index')->with('edited', 'La tipologia è stata modificata correttamente');;
     }
 
     /**
@@ -77,6 +91,6 @@ class TypeController extends Controller
     {
         $type->delete();
 
-        return redirect()->route('admin.types.index');
+        return redirect()->route('admin.types.index')->with('delete', 'La tipologia è stata eliminata correttamente');
     }
 }
